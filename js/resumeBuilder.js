@@ -153,12 +153,12 @@ function FillInformation(info) {
             return newBio;
             break;
         case 'education':
-            var edu=Education();
-            var school1=School('South Hampton University','Hampton, VA','Bachelors Degree',['CS'],'May, 2011','https://gotoSHU.go');
-            var school2=School('Hampshire University','Jacksonville, FL','High School',['Electronics'],'May, 2005','https://gotoHAMPSHIRE.go');
+            var edu = Education();
+            var school1 = School('South Hampton University', 'Hampton, VA', 'Bachelors Degree', ['CS'], 'May, 2011', 'https://gotoSHU.go');
+            var school2 = School('Hampshire University', 'Jacksonville, FL', 'High School', ['Electronics'], 'May, 2005', 'https://gotoHAMPSHIRE.go');
             edu.schools.push(school1);
             edu.schools.push(school2);
-            var online1=OnCourse('Front-End Web Dev','Udacity','September, 2016','https://udacity.com');
+            var online1 = OnCourse('Front-End Web Dev', 'Udacity', 'September, 2016', 'https://udacity.com');
             edu.onlineCourses.push(online1);
             return edu;
             break;
@@ -171,10 +171,8 @@ function FillInformation(info) {
             return work;
             break;
         case 'projects':
-            var p1 = Project('Sample Project 1','January, 2014'
-            ,'This is to say that lorem ipsum gosum is awesome. The detail are a little sketchy now.',['http://placehold.it/150x150']);
-            var p2 = Project('Definite Project 1','January, 2016'
-            ,'This is to say that lorem ipsum gosum is awesome. The detail are a little sketchy now.',['http://placehold.it/150x150']);
+            var p1 = Project('Sample Project 1', 'January, 2014', 'This is to say that lorem ipsum gosum is awesome. The detail are a little sketchy now.', ['http://placehold.it/150x150']);
+            var p2 = Project('Definite Project 1', 'January, 2016', 'This is to say that lorem ipsum gosum is awesome. The detail are a little sketchy now.', ['http://placehold.it/150x150']);
             var projects = ProjectDetail();
             projects.projects.push(p1);
             projects.projects.push(p2);
@@ -184,19 +182,19 @@ function FillInformation(info) {
 }
 
 function AddDisplay(info, objInfo) {
-    var displayFn={};
+    var displayFn = {};
     switch (info.toLowerCase()) {
-      case 'bio':
+        case 'bio':
             displayFn = function() {
                 var headerName = {
                     name: HTMLheaderName.replace('%data%', objInfo.name),
                     role: HTMLheaderRole.replace('%data%', objInfo.role)
                 };
                 var biopic = {
-                        pic: HTMLbioPic.replace('%data%', objInfo.biopic),
-                        message: HTMLwelcomeMsg.replace('%data%', objInfo.welcomeMessage)
-                    };
-                    //Prepend and append
+                    pic: HTMLbioPic.replace('%data%', objInfo.biopic),
+                    message: HTMLwelcomeMsg.replace('%data%', objInfo.welcomeMessage)
+                };
+                //Prepend and append
                 $('#header').prepend(headerName.role);
                 $('#header').prepend(headerName.name);
                 $('#header').append(biopic.pic);
@@ -213,28 +211,28 @@ function AddDisplay(info, objInfo) {
             };
             break;
         case 'education':
-            displayFn = function(){
+            displayFn = function() {
 
-                var schoolHTML=$(HTMLschoolStart);
+                var schoolHTML = $(HTMLschoolStart);
                 for (var j = 0; j < objInfo.schools.length; j++) {
 
-                  var s=objInfo.schools[j];
-                  schoolHTML.append(HTMLschoolName.replace('%data%',s.name)
-                  + HTMLschoolDegree.replace('%data%',s.degree));
-                  schoolHTML.append(HTMLschoolDates.replace('%data%',s.dates));
-                  schoolHTML.append(HTMLschoolLocation.replace('%data%',s.location));
-                  var majorStr=s.majors.join(',');
-                  schoolHTML.append(HTMLschoolMajor.replace('%data%',majorStr));
+                    var s = objInfo.schools[j];
+                    schoolHTML.append(HTMLschoolName.replace('%data%', s.name) +
+                        HTMLschoolDegree.replace('%data%', s.degree));
+                    schoolHTML.append(HTMLschoolDates.replace('%data%', s.dates));
+                    schoolHTML.append(HTMLschoolLocation.replace('%data%', s.location));
+                    var majorStr = s.majors.join(',');
+                    schoolHTML.append(HTMLschoolMajor.replace('%data%', majorStr));
 
                 }
 
                 var eduHTML = $(HTMLschoolStart);
-                for (var j = 0; j < objInfo.onlineCourses.length; j++) {
-                  var c=objInfo.onlineCourses[j];
-                  eduHTML.append(HTMLonlineTitle.replace('%data%',c.title)
-                  + HTMLonlineSchool.replace('%data%',c.school));
-                  eduHTML.append(HTMLonlineDates.replace('%data%',c.dates));
-                  eduHTML.append(HTMLonlineURL.replace('%data%',c.url));
+                for (j = 0; j < objInfo.onlineCourses.length; j++) {
+                    var c = objInfo.onlineCourses[j];
+                    eduHTML.append(HTMLonlineTitle.replace('%data%', c.title) +
+                        HTMLonlineSchool.replace('%data%', c.school));
+                    eduHTML.append(HTMLonlineDates.replace('%data%', c.dates));
+                    eduHTML.append(HTMLonlineURL.replace('%data%', c.url));
                 }
                 /*Append and prepend DOM*/
                 $('#education').append(schoolHTML);
@@ -258,27 +256,27 @@ function AddDisplay(info, objInfo) {
             }; //end of function display
             break;
         case 'projects':
-            displayFn = function(){
-              /*Append and prepend*/
-              for (var i = 0; i < this.projects.length; i++) {
-                var temp=this.projects[i];
-                var projHTML=$(HTMLprojectStart);
-                projHTML.append(HTMLprojectTitle.replace('%data%',temp.title));
-                projHTML.append(HTMLprojectDates.replace('%data%',temp.dates));
-                projHTML.append(HTMLprojectDescription.replace('%data%',temp.description));
-                for (var j = 0; j < temp.images.length; j++) {
-                  var img=temp.images[j];
-                  projHTML.append(HTMLprojectImage.replace('%data%',img));
-                }
+            displayFn = function() {
+                /*Append and prepend*/
+                for (var i = 0; i < this.projects.length; i++) {
+                    var temp = this.projects[i];
+                    var projHTML = $(HTMLprojectStart);
+                    projHTML.append(HTMLprojectTitle.replace('%data%', temp.title));
+                    projHTML.append(HTMLprojectDates.replace('%data%', temp.dates));
+                    projHTML.append(HTMLprojectDescription.replace('%data%', temp.description));
+                    for (var j = 0; j < temp.images.length; j++) {
+                        var img = temp.images[j];
+                        projHTML.append(HTMLprojectImage.replace('%data%', img));
+                    }
 
-                /*Append and prepend to DOM*/
-                $('#projects').append(projHTML);
-              }
+                    /*Append and prepend to DOM*/
+                    $('#projects').append(projHTML);
+                }
 
             };
             break;
     }
-    objInfo.display=displayFn;
+    objInfo.display = displayFn;
 
 }
 Main();
