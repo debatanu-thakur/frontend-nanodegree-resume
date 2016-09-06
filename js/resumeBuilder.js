@@ -183,7 +183,7 @@ function FillInformation(info) {
             projects.projects.push(p1);
             projects.projects.push(p2);
             return projects;
-            
+
     }
 }
 
@@ -207,7 +207,7 @@ function AddDisplay(info, objInfo) {
                 $('#header').append(biopic.message);
                 $('#header').append(HTMLskillsStart);
                 objInfo.skills.forEach(function(item, index, arr) {
-                    $('#header').append(HTMLskills.replace('%data%', item));
+                    $('#skills').append(HTMLskills.replace('%data%', item));
                 });
                 var propNames = Object.getOwnPropertyNames(objInfo.contacts);
                 propNames.forEach(function(item, index) {

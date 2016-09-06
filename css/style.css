@@ -129,7 +129,8 @@ a {
 
 /* TODO: Replace with image later */
 #header {
-  background-color: #484848;
+  background-image: url("../images/background.png");
+  background-size: contain;
 }
 
 .flex-box {
@@ -199,6 +200,16 @@ span {
   .welcome-message {
     display: none;
   }
+  /*Added css for proper display of data*/
+  .flex-item {
+    display: inline-block;
+    width: 50%;
+    line-height: 1.5em;
+  }
+  .flex-item:last-of-type {
+    display: block;
+    width: 100%;
+  }
 }
 
 #map {
@@ -217,5 +228,13 @@ span {
   #skills-h3,
   .biopic {
     display: block;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  /*Added css for proper display of data*/
+  .flex-item {
+    display: block;
+    width: 100%;
   }
 }
