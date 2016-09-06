@@ -1,6 +1,11 @@
 /*
 Object Creations
  */
+ /*Global objects declared*/
+ var bio = {},
+     education = {},
+     work = {},
+     projects = {};
 /* Bio object */
 function Bio(name, role, contacts, welcomeMessage, skills, biopic) {
     var bio = {
@@ -118,10 +123,7 @@ Main function
 /*And all display related operation is done*/
 
 function Main() {
-    var bio = {},
-        education = {},
-        work = {},
-        projects = {};
+
 
     /*bio info*/
     bio = FillInformation('bio');
@@ -143,6 +145,10 @@ function Main() {
     AddDisplay('education', education);
     education.display();
 
+    /*Map Addition*/
+    //$('#mapDiv').append(internationalizeButton);
+    $('#mapDiv').append(googleMap);
+    
 }
 
 function FillInformation(info) {
