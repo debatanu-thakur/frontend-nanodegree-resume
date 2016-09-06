@@ -207,6 +207,7 @@ function AddDisplay(info, objInfo) {
                 propNames.forEach(function(item, index) {
                     var generic = HTMLcontactGeneric.replace('%contact%', item).replace('%data%', objInfo.contacts[item]);
                     $('#topContacts').append(generic);
+                    $('#footerContacts').append(generic);
                 });
             };
             break;
