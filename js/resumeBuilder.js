@@ -148,7 +148,7 @@ function Main() {
     /*Map Addition*/
     //$('#mapDiv').append(internationalizeButton);
     $('#mapDiv').append(googleMap);
-    
+
 }
 
 function FillInformation(info) {
@@ -157,7 +157,7 @@ function FillInformation(info) {
             var contact = Contact('650-555-5555', 'iamthejoker@gotham.com', 'https://gitub.com/jokes', 'https://twitter.com/jokes@gotham', 'San Diego');
             var newBio = Bio('John Design', 'Awesome Web Dev', contact, 'Welcome to the world of awesomeness', ['jokes', 'awesome cook', 'part time musician', 'sometimes terrorize gotham'], 'http://placehold.it/350x350');
             return newBio;
-            break;
+
         case 'education':
             var edu = Education();
             var school1 = School('South Hampton University', 'Hampton, VA', 'Bachelors Degree', ['CS'], 'May, 2011', 'https://gotoSHU.go');
@@ -167,7 +167,7 @@ function FillInformation(info) {
             var online1 = OnCourse('Front-End Web Dev', 'Udacity', 'September, 2016', 'https://udacity.com');
             edu.onlineCourses.push(online1);
             return edu;
-            break;
+
         case 'work':
             var job1 = Job('Panet Express', 'Delivery Boy', 'Brooklyn, NY', '2012-08-08', 'There was once a Delivery. And it was a fun time. This is what a Delivery express Boy details about.');
             var job2 = Job('Phoenix', 'Express Delivery Boy', 'Manhattan, Ny', '2015-08-08', 'There was once a Delivery. And it was a fun time. This is what a Delivery express Boy details about.');
@@ -175,7 +175,7 @@ function FillInformation(info) {
             work.jobs.push(job1);
             work.jobs.push(job2);
             return work;
-            break;
+
         case 'projects':
             var p1 = Project('Sample Project 1', 'January, 2014', 'This is to say that lorem ipsum gosum is awesome. The detail are a little sketchy now.', ['http://placehold.it/150x150']);
             var p2 = Project('Definite Project 1', 'January, 2016', 'This is to say that lorem ipsum gosum is awesome. The detail are a little sketchy now.', ['http://placehold.it/150x150']);
@@ -183,7 +183,7 @@ function FillInformation(info) {
             projects.projects.push(p1);
             projects.projects.push(p2);
             return projects;
-            break;
+            
     }
 }
 
